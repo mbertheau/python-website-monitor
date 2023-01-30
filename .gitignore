@@ -1,0 +1,7 @@
+/build/
+/dist/
+/htmlcov/
+/src/website_monitor.egg-info/
+/.coverage
+/.python-version
+__pycache__

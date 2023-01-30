@@ -1,0 +1,10 @@
+-r requirements.in
+build
+black
+isort
+pyflakes
+pip-tools
+pytest
+pytest-asyncio
+aiohttp
+coverage
