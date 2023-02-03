@@ -15,8 +15,6 @@ import website_monitor.serde
 
 log = logging.getLogger(__name__)
 
-logging.getLogger("asyncio").setLevel(logging.DEBUG)
-
 
 # When a check takes longer than this, it fails with "error": "Timeout"
 WEBSITE_CHECK_TIMEOUT_SECONDS = 10
