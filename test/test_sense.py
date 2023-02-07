@@ -96,6 +96,7 @@ async def empty_response(request):
             "response_regexp": "Hello",
             "response_matches_regexp": False,
         },
+        {"scheme": "https", "error": "SSL handshake failed"},
     ],
 )
 @pytest.mark.asyncio
@@ -106,11 +107,12 @@ async def test_check_website(aiohttp_server, test_data):
 
     server = await aiohttp_server(app)
 
+    scheme = test_data.get("scheme", "http")
     host = test_data.get("host", server.host)
     port = test_data.get("port", server.port)
     path = test_data.get("path", "")
 
-    website = {"url": f"http://{host}:{port}{path}"}
+    website = {"url": f"{scheme}://{host}:{port}{path}"}
 
     response_regexp = test_data.get("response_regexp")
     if response_regexp:
